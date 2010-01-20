@@ -1,0 +1,4 @@
+option to show only internal links, or only external links
+
+option to output the links resolved to url,
+   seems like it should be able to resolve or be told the base href for that

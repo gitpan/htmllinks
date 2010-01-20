@@ -1,0 +1,173 @@
+#!/usr/bin/perl
+use strict;
+use LEOCHARRE::CLI2 ':all','LAIOSlaiosy';
+use Carp;
+use HTML::LinkExtor;
+our $VERSION = sprintf "%d.%02d", q$Revision: 1.3 $ =~ /(\d+)/g;
+use YAML;
+
+
+local $/;
+my $src = (<>);
+
+my $l = length $src;
+debug("length: $l");
+
+my $p = HTML::LinkExtor->new;
+$p->parse($src);
+debug("parsed");
+
+my @l = $p->links;
+my $lcount = scalar @l;
+debug("link count $lcount");
+
+# tags ruled out by flag..
+my %_skip = qw/
+   L link
+   A a
+   I img
+   S script
+   O object
+/;
+if( $opt_l ){ map { $OPT{$_}++ } qw/A I O S/ }
+if( $opt_a ){ map { $OPT{$_}++ } qw/L I O S/ }
+if( $opt_i ){ map { $OPT{$_}++ } qw/L A O S/ }
+if( $opt_o ){ map { $OPT{$_}++ } qw/L A I S/ }
+if( $opt_s ){ map { $OPT{$_}++ } qw/L A I O/ }
+
+
+my %seen;
+
+LINK: for (@l){
+   my @e = @{$_};
+
+   # resolve data
+   my %link;   
+   $link{tag} = shift @e;
+   %{$link{att}} = ( @e );
+
+   
+   # skip this one??
+   
+   for my $f(keys %_skip){
+      if ($OPT{$f}){
+         ($link{tag} eq $_skip{$f}) and next LINK;
+      }
+   }   
+   
+   # end skip test
+   
+   # as yaml?
+   if ($opt_y){
+      print YAML::Dump(\%link);
+      next LINK;
+   }
+   
+   # just show urls..
+   for my $k ( sort keys %{$link{att}}){
+      my $v = $link{att}->{$k};
+      # skip it ???
+      $seen{$v}++ and next;
+
+      printf "%s\n", $v;
+   }
+   
+
+}
+
+
+# output as YAML
+#if ($opt_y){
+#   print YAML::Dump(@YAML);
+#}
+
+exit;
+
+
+sub usage {q{htmllinks [OPTION]..
+Filter for links in html source.
+
+   -h          help
+   -L          no 'link' tags, usually css
+   -A          no 'a' tags 
+   -I          no 'img' tags
+   -O          no 'object' tags   
+   -S          no 'script' tags
+   -l          only 'link' tags
+   -a          only 'a' tags (likely html content)
+   -i          only 'img' tags   
+   -o          only 'object' tags
+   -s          only 'script' tags 
+   -y          output as YAML
+   
+Try 'man htmllinks' for more info.
+}}
+
+
+__END__
+
+=pod
+
+=head1 NAME
+
+htmllinks - Filter for links in html source.
+
+=head1 DESCRIPTION
+
+Links are things like a href="" and img src="" etc..
+
+=head1 USAGE
+
+htmllinks [OPTION].. FILE..
+
+   -h          help
+   -L          no 'link' tags, usually css
+   -A          no 'a' tags 
+   -I          no 'img' tags
+   -O          no 'object' tags   
+   -S          no 'script' tags
+   -l          only 'link' tags
+   -a          only 'a' tags (likely html content)
+   -i          only 'img' tags   
+   -o          only 'object' tags
+   -s          only 'script' tags 
+   -y          output as YAML
+
+
+=head2 USAGE EXAMPLES
+
+See 'a' links in a website, likely html links to parts of the website:
+   wget http://leocharre.com -O - | htmllinks -a
+
+See links in a html page:
+   htmllinks ./page.html
+
+See all image links in a html page:
+   htmllinks -i ./page.html 
+
+=head1 SEE ALSO
+
+htmllinks - parent package
+HTML::LinkExtor
+HTML::Parser
+
+=head1 AUTHOR
+
+Leo Charre leocharre at cpan dot org
+
+=head1 COPYRIGHT
+
+Copyright (c) 2010 Leo Charre. All rights reserved.
+
+=head1 LICENSE
+
+This package is free software; you can redistribute it and/or modify it under the same terms as Perl itself, i.e., under the terms of the "Artistic License" or the "GNU General Public License".
+
+=head1 DISCLAIMER
+
+This package is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+See the "GNU General Public License" for more details.
+
+=cut
+

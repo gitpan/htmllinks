@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head>
+  <link rel="stylesheet" href="http://st.pimg.net/tucs/style.css" type="text/css" />
+<link rel="stylesheet" href="http://st.pimg.net/tucs/print.css" type="text/css" media="print" />
+  <link rel="alternate" type="application/rss+xml" title="RSS 1.0" href="http://search.cpan.org/uploads.rdf" />
+  <link rel="search" href="http://st.pimg.net/tucs/opensearch.xml" type="application/opensearchdescription+xml" title="SearchCPAN" />
+  <title>HTML::LinkExtor - search.cpan.org</title>
+ </head>
+ <body id="cpansearch">
+<center><div class="logo"><a href="/"><img src="http://st.pimg.net/tucs/img/cpan_banner.png" alt="CPAN"></a></div></center>
+<div class="menubar">
+ <a href="/">Home</a>
+&middot; <a href="/author/">Authors</a>
+&middot; <a href="/recent">Recent</a>
+&middot; <a href="http://log.perl.org/cpansearch/">News</a>
+&middot; <a href="/mirror">Mirrors</a>
+&middot; <a href="/faq.html">FAQ</a>
+&middot; <a href="/feedback">Feedback</a>
+</div>
+<form method="get" action="/search" name="f" class="searchbox">
+<input type="text" name="query" value="" size="35">
+<br>in <select name="mode">
+ <option value="all">All</option>
+ <option value="module" >Modules</option>
+ <option value="dist" >Distributions</option>
+ <option value="author" >Authors</option>
+</select>&nbsp;<input type="submit" value="CPAN Search">
+</form>
+
+
+ <a name="_top"></a>
+  <div class=path>
+<div id=permalink class="noprint"><a href="/perldoc?HTML::LinkExtor">permalink</a></div>
+  <a href="/~gaas/">Gisle Aas</a> &gt;
+  <a href="/~gaas/HTML-Parser-3.64/">HTML-Parser-3.64</a> &gt;
+  HTML::LinkExtor
+ </div>
+
+<div class="noprint" style="float:right;align:left;width:19ex">
+<a href="http://hexten.net/cpan-faces/"><img src="http://www.gravatar.com/avatar.php?gravatar_id=80ccd89a65d9faf08c2fb6be2991ba57&rating=G&size=80&default=http%3A%2F%2Fst.pimg.net%2Ftucs%2Fimg%2Fwho.png" width=80 height=80 
+style="float:right"
+/></a>
+<br style="clear:both"/>
+<p style="text-align:right">Download:<br/> <a href="/CPAN/authors/id/G/GA/GAAS/HTML-Parser-3.64.tar.gz">HTML-Parser-3.64.tar.gz</a></p>
+<p style="text-align:right"><a href="http://deps.cpantesters.org/?module=HTML::LinkExtor;perl=latest">Dependencies</a></p>
+<p style="text-align:right"><a href="http://www.annocpan.org/~GAAS/HTML-Parser-3.64/lib/HTML/LinkExtor.pm">Annotate this POD
+(1)
+</a></p>
+<div class=box style='width:150px; float: right'>
+<h1 class=t5>Related Modules</h1>
+<div style="margin:2px">
+<a href="/perldoc?HTML::Parser">HTML::Parser</a><br>
+<a href="/perldoc?LWP::UserAgent">LWP::UserAgent</a><br>
+<a href="/perldoc?LWP::Simple">LWP::Simple</a><br>
+<a href="/perldoc?HTML::TokeParser">HTML::TokeParser</a><br>
+<a href="/perldoc?URI::URL">URI::URL</a><br>
+<a href="/perldoc?File::Find">File::Find</a><br>
+<a href="/perldoc?Data::Dumper">Data::Dumper</a><br>
+<a href="/perldoc?Text::Balanced">Text::Balanced</a><br>
+<a href="/perldoc?WWW::Mechanize">WWW::Mechanize</a><br>
+<a href="/perldoc?HTTP::Request">HTTP::Request</a><br>
+<small>
+<a href="http://perlmonks.org/?node=cpan+module+search&pivot=1&module=HTML::LinkExtor">more...</a><br>
+By <a href="http://perlmonks.org/">perlmonks.org</a></small>
+</div>
+</div>
+
+<div style="float:right">
+<div class=box style='width:150px'>
+<h1 class=t5>CPAN RT</h1>
+<div style="margin:2px">
+<table style="margin-left:auto;margin-right:auto">
+<tr><td>New&nbsp;</td><td style="text-align:right"> 1</td></tr>
+<tr><td>Open&nbsp;</td><td style="text-align:right"> 3</td></tr>
+</table>
+<a href="http://rt.cpan.org/NoAuth/Bugs.html?Dist=HTML-Parser">View Bugs</a><br/>
+<a href="http://rt.cpan.org/Public/Bug/Report.html?Queue=HTML-Parser">Report a bug</a>
+</div>
+</div>
+
+</div>
+</div>
+  Module Version:  3.60 &nbsp;
+<span class="noprint">
+  <a href="/src/GAAS/HTML-Parser-3.64/lib/HTML/LinkExtor.pm">Source</a> &nbsp;
+</span>
+<a name="___top"></a>
+<div class=pod>
+<div class=toc>
+<div class='indexgroup'>
+<ul   class='indexList indexList1'>
+  <li class='indexItem indexItem1'><a href='#NAME'>NAME</a>
+  <li class='indexItem indexItem1'><a href='#SYNOPSIS'>SYNOPSIS</a>
+  <li class='indexItem indexItem1'><a href='#DESCRIPTION'>DESCRIPTION</a>
+  <li class='indexItem indexItem1'><a href='#EXAMPLE'>EXAMPLE</a>
+  <li class='indexItem indexItem1'><a href='#SEE_ALSO'>SEE ALSO</a>
+  <li class='indexItem indexItem1'><a href='#COPYRIGHT'>COPYRIGHT</a>
+</ul>
+</div>
+</div>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="NAME"
+>NAME <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>HTML::LinkExtor - Extract links from an HTML document</p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="SYNOPSIS"
+>SYNOPSIS <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<pre> require HTML::LinkExtor;
+ $p = HTML::LinkExtor-&#62;new(\&#38;cb, &#34;<a href="http://www.perl.org/" class="podlinkurl"
+>http://www.perl.org/</a>&#34;);
+ sub cb {
+     my($tag, %links) = @_;
+     print &#34;$tag @{[%links]}\n&#34;;
+ }
+ $p-&#62;parse_file(&#34;index.html&#34;);</pre>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="DESCRIPTION"
+>DESCRIPTION <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p><i>HTML::LinkExtor</i> is an HTML parser that extracts links from an HTML document. The <i>HTML::LinkExtor</i> is a subclass of <i>HTML::Parser</i>. This means that the document should be given to the parser by calling the $p-&#62;parse() or $p-&#62;parse_file() methods.</p>
+
+<dl>
+<dt><a name='p'></a><a name="$p_=_HTML::LinkExtor-&#62;new"
+>$p = HTML::LinkExtor-&#62;new
+<dt><a name='p'></a><a name="$p_=_HTML::LinkExtor-&#62;new(_$callback_)"
+>$p = HTML::LinkExtor-&#62;new( $callback )
+<dt><a name='p'></a><a name="$p_=_HTML::LinkExtor-&#62;new(_$callback,_$base_)"
+>$p = HTML::LinkExtor-&#62;new( $callback, $base )</a></dt>
+
+<dd>
+<p>The constructor takes two optional arguments. The first is a reference to a callback routine. It will be called as links are found. If a callback is not provided, then links are just accumulated internally and can be retrieved by calling the $p-&#62;links() method.</p>
+
+<p>The $base argument is an optional base URL used to absolutize all URLs found. You need to have the <i>URI</i> module installed if you provide $base.</p>
+
+<p>The callback is called with the lowercase tag name as first argument, and then all link attributes as separate key/value pairs. All non-link attributes are removed.</p>
+
+<dt><a name='p'></a><a name="$p-&#62;links"
+>$p-&#62;links</a></dt>
+
+<dd>
+<p>Returns a list of all links found in the document. The returned values will be anonymous arrays with the following elements:</p>
+
+<pre>  [$tag, $attr =&#62; $url1, $attr2 =&#62; $url2,...]</pre>
+
+<p>The $p-&#62;links method will also truncate the internal link list. This means that if the method is called twice without any parsing between them the second call will return an empty list.</p>
+
+<p>Also note that $p-&#62;links will always be empty if a callback routine was provided when the <i>HTML::LinkExtor</i> was created.</p>
+</dd>
+</dl>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="EXAMPLE"
+>EXAMPLE <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>This is an example showing how you can extract links from a document received using LWP:</p>
+
+<pre>  use LWP::UserAgent;
+  use HTML::LinkExtor;
+  use URI::URL;
+
+  $url = &#34;<a href="http://www.perl.org/" class="podlinkurl"
+>http://www.perl.org/</a>&#34;;  # for instance
+  $ua = LWP::UserAgent-&#62;new;
+
+  # Set up a callback that collect image links
+  my @imgs = ();
+  sub callback {
+     my($tag, %attr) = @_;
+     return if $tag ne &#39;img&#39;;  # we only look closer at &#60;img ...&#62;
+     push(@imgs, values %attr);
+  }
+
+  # Make the parser.  Unfortunately, we don&#39;t know the base yet
+  # (it might be different from $url)
+  $p = HTML::LinkExtor-&#62;new(\&#38;callback);
+
+  # Request document and parse it as it arrives
+  $res = $ua-&#62;request(HTTP::Request-&#62;new(GET =&#62; $url),
+                      sub {$p-&#62;parse($_[0])});
+
+  # Expand all image URLs to absolute ones
+  my $base = $res-&#62;base;
+  @imgs = map { $_ = url($_, $base)-&#62;abs; } @imgs;
+
+  # Print them out
+  print join(&#34;\n&#34;, @imgs), &#34;\n&#34;;</pre>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="SEE_ALSO"
+>SEE ALSO <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p><a href="/~gaas/HTML-Parser-3.64/Parser.pm" class="podlinkpod"
+>HTML::Parser</a>, <a href="/perldoc?HTML%3A%3ATagset" class="podlinkpod"
+>HTML::Tagset</a>, <a href="/perldoc?LWP" class="podlinkpod"
+>LWP</a>, <a href="/perldoc?URI%3A%3AURL" class="podlinkpod"
+>URI::URL</a></p>
+
+<h1><a class='u' href='#___top' title='click to go to top of document'
+name="COPYRIGHT"
+>COPYRIGHT <img alt='^' src='http://st.pimg.net/tucs/img/up.gif'></a></h1>
+
+<p>Copyright 1996-2001 Gisle Aas.</p>
+
+<p>This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.</p>
+
+</div>
+
+
+<div class="footer"><div class="cpanstats">60390 Uploads, 19281 Distributions
+77075 Modules, 7872 Uploaders
+</div>
+hosted by <a href="http://www.weblocal.ca">weblocal.ca</a><br/>
+<a href="http://www.weblocal.ca"><img alt="Find. Rate. Share." src="http://st.pimg.net/tucs/img/weblocal_logo.gif"></a>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3528438-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+<!-- Fri Dec 18 14:15:52 2009 GMT (0.0230379104614258) @cpansearch1 -->
+ </body>
+</html>
